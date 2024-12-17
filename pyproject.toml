@@ -1,0 +1,44 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "pybind11>=2.12.0"
+]
+build-backend = "setuptools.build_meta"
+target-version = "py38"
+
+[project]
+name = "pycontree"
+version = "1.0"
+description = "Python Wrapper ConTree: Optimal Decision Trees for Continuous Feature Data"
+license=  {file = "LICENSE"}
+authors = [
+    {name = "Cătălin E. Briţa", email="C.E.Brita@student.tudelft.nl"},
+    {name = "Jacobus G. M. van der Linden", email="J.G.M.vanderLinden@tudelft.nl"},
+    {name = "Emir Demirović", email="E.Demirovic@tudelft.nl"}
+]
+maintainers = [
+    {name = "Cătălin E. Briţa", email="C.E.Brita@student.tudelft.nl"},
+    {name = "Jacobus G. M. van der Linden", email="J.G.M.vanderLinden@tudelft.nl"}
+]
+dependencies =[
+    "pandas>=1.0.0",
+    "numpy>=1.18.0",
+    "scikit-learn >=1.2.0",
+    "typing_extensions>=4.0.0"
+    
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent", ]
+
+[project.optional-dependencies]
+dev = []
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
+
+[tool.setuptools.packages]
+find = {}  # Scanning implicit namespaces is active by default
