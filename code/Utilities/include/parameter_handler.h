@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
+#include <stdint.h>
 #include <map>
 #include <sstream>
 #include <string>
