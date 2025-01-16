@@ -8,7 +8,7 @@ Delft University of Technology
 ConTree computes optimal binary classification trees on datasets with continuous features using dynamic programming with branch-and-bound.
 
 If you use ConTree, please cite our paper:
-* Briţa, Cătălin E., Jacobus G. M. van der Linden, and Emir Demirović. "Optimal Classification Trees for Continuous Feature Data Using Dynamic Programming with Branch-and-Bound." In _Proceedings of AAAI-25_ (2025).
+* Briţa, Cătălin E., Jacobus G. M. van der Linden, and Emir Demirović. "Optimal Classification Trees for Continuous Feature Data Using Dynamic Programming with Branch-and-Bound." In _Proceedings of AAAI-25_ (2025). [pdf](https://arxiv.org/pdf/2501.07903)
 
 ## Python usage
 
