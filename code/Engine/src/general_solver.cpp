@@ -21,10 +21,10 @@ void GeneralSolver::create_optimal_decision_tree(const Dataview& dataview, const
         return;
     }
 
-    if (solution_configuration.max_depth == 2) {
-        SpecializedSolver::create_optimal_decision_tree(dataview, solution_configuration, current_optimal_decision_tree, std::min(upper_bound, current_optimal_decision_tree->misclassification_score));
-        return;
-    }
+    // if (solution_configuration.max_depth == 2) {
+    //     SpecializedSolver::create_optimal_decision_tree(dataview, solution_configuration, current_optimal_decision_tree, std::min(upper_bound, current_optimal_decision_tree->misclassification_score));
+    //     return;
+    // }
 
     for (int feature_nr = 0; feature_nr < dataview.get_feature_number(); feature_nr++) {
         int feature_index = dataview.gini_values[feature_nr].second;
@@ -94,7 +94,10 @@ void GeneralSolver::create_optimal_decision_tree(const Dataview& dataview, const
         const Configuration left_solution_configuration = solution_configuration.GetLeftSubtreeConfig();
         GeneralSolver::create_optimal_decision_tree(larger_data, left_solution_configuration, larger_optimal_dt, larger_ub);
 
-        int smaller_ub = solution_configuration.use_upper_bound ? std::max(std::min(current_optimal_decision_tree->misclassification_score, upper_bound) - larger_optimal_dt->misclassification_score, interval_half_distance) 
+        // int smaller_ub = solution_configuration.use_upper_bound ? std::max(std::min(current_optimal_decision_tree->misclassification_score, upper_bound) - larger_optimal_dt->misclassification_score, interval_half_distance) 
+        //                                 : current_optimal_decision_tree->misclassification_score;
+
+        int smaller_ub = solution_configuration.use_upper_bound ? std::min(current_optimal_decision_tree->misclassification_score, upper_bound + interval_half_distance - larger_optimal_dt->misclassification_score)
                                         : current_optimal_decision_tree->misclassification_score;
 
         if (smaller_ub > 0 || (smaller_ub == 0 && current_optimal_decision_tree->misclassification_score == larger_optimal_dt->misclassification_score)) {
